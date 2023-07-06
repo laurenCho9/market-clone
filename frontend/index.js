@@ -12,8 +12,22 @@ const calcTime = (timestamp) => {
   else return "방금 전";
 };
 
+{
+  /* <div class="item-list">
+<div class="item-list__img">
+  <img src="./assets/img.svg" alt="img" />
+</div>
+<div class="item-list__info">
+  <div class="item-list__info-title">게이밍 PC 팝니다</div>
+  <div class="item-list__info-meta">역삼동 15초 전</div>
+  <div class="item-list__info-price">100만원</div>
+</div>
+</div> */
+}
+
 const renderData = (data) => {
   const main = document.querySelector("main");
+  // data.sort((a,b)=>a.).forEach(async (obj) => {
   data.reverse().forEach(async (obj) => {
     const div = document.createElement("div");
     div.className = "item-list";
@@ -22,6 +36,7 @@ const renderData = (data) => {
     imgDiv.className = "item-list__img";
 
     const img = document.createElement("img");
+    // img.src = "./assets/img.svg";
     const res = await fetch(`/images/${obj.id}`);
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
